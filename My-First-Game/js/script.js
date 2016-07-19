@@ -1,7 +1,5 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-	'use strict';
-	
 	var keyLeft = 37,
 	keyRight = 39,
 	keySpace = 32,
