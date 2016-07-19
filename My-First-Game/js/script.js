@@ -82,20 +82,20 @@ document.addEventListener("DOMContentLoaded", function () {
 					hits = document.getElementById("score").innerHTML;
 					hits++;
 					document.getElementById("score").innerHTML = hits;
-					bullets[i].parentNode.removeChild(bullets[i]);
 					
-					if (countBullets < 0 && (i == bullets.length - 1 || (i == 0 && bullets.length == 1))) {
+					if (countBullets < 0 && i == bullets.length - 1) {
 						isLastBullet = true;
 					}
+					bullets[i].parentNode.removeChild(bullets[i]);
 				}
 			}
 			
 			if (shot > 580) {
-				bullets[i].parentNode.removeChild(bullets[i]);
-				
-				if (countBullets < 0 && (i == bullets.length - 1 || (i == 0 && bullets.length == 1))) {
+				if (countBullets < 0 && i == bullets.length - 1) {
 					isLastBullet = true;
 				}
+				
+				bullets[i].parentNode.removeChild(bullets[i]);
 			}
 		}
 	}
@@ -133,23 +133,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		bullets = document.getElementById("bullets"),
 		image = document.getElementById("target");
 		
-		if (isLastBullet && score.innerHTML == 70) {
-			isLastBullet = false;
+		if (score.innerHTML >= 70) {
+			isGame = false;
+			image.style.background = "url(images/die-pig.png)";
+			infoScore.style.color = "#00ff22";
+			infoControls.style.visibility = "hidden";
+			result.style.visibility = "visible";
+			infoRez.innerHTML = "You WIN!";
+			infoRez.style.color = "#00ff22";
 		}
 		
-		function win() {
-			if (score.innerHTML >= 70 && !isLastBullet) {
-				isGame = false;
-				image.style.background = "url(images/die-pig.png)";
-				infoScore.style.color = "#00ff22";
-				infoControls.style.visibility = "hidden";
-				result.style.visibility = "visible";
-				infoRez.innerHTML = "You WIN!";
-				infoRez.style.color = "#00ff22";
-			}
-		}
-		
-		if (bullets.innerHTML == 0 && isLastBullet) {
+		if (bullets.innerHTML == 0 && score.innerHTML < 70 && isLastBullet) {
 			isGame = false;
 			image.style.background = "url(images/happy-pig.png)";
 			infoScore.style.color = "#ff2200";
@@ -161,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 	
 	function onFrame() {
-		
 		if (isGame) {
 			targetMove();
 			playerMove();
