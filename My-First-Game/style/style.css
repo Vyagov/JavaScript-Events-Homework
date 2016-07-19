@@ -1,0 +1,98 @@
+@CHARSET "UTF-8";
+
+body {
+	background: #54b6d2; /* Old browsers */
+	background: -moz-linear-gradient(top, #54b6d2 15%, #84c415 55%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #54b6d2 15%,#84c415 55%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #54b6d2 15%,#84c415 55%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54b6d2', endColorstr='#84c415',GradientType=0 ); /* IE6-9 */
+}
+#game-field {
+	margin: 17px auto;
+	border: 10px solid #004800;
+	border-radius: 10px;
+	background: url(../images/background.png) no-repeat;
+	background-size: 100%;
+	position: relative;
+	width: 1000px;
+	height: 610px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#target-zone {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+#target {
+	background: url(../images/pig.png);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+
+#player-zone {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+#player {
+	background: url(../images/slingshot.png);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.bullet {
+   width: 20px;
+   height: 22px;
+   background: url(../images/red-bird.png);
+   position: absolute;
+}
+
+#info-panel {
+	position: absolute;
+	left: 0;
+	top: 280px;
+	width: 98%;
+	margin: 0 1%;
+}
+
+#info-score {
+	display: inline-block;
+	float: left;
+	font-size: 3em;
+	font-weight: bold;
+	color: #0024dd;
+}
+
+#info-controls {
+	display: inline-block;
+	float: right;
+	font-size: 1.8em;
+	font-weight: bold;
+	visibility: visible;
+}
+
+#result {
+	display: inline-block;
+	float: right;
+	font-size: 3em;
+	visibility: hidden;
+	font-weight: bold;
+	text-align: center;
+}
+
+#infoRez {
+	color: #1199ff;
+}
